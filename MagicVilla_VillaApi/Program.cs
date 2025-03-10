@@ -5,6 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+//TO CREARE A LOG FILE....
+
 //Log.Logger = new LoggerConfiguration().MinimumLevel.Debug()
 //    .WriteTo.File("log/villaLogs.txt", rollingInterval: RollingInterval.Day).CreateLogger();
 
@@ -16,6 +18,7 @@ builder.Services.AddControllers(option =>
 }).AddNewtonsoftJson().AddXmlDataContractSerializerFormatters();
 builder.Services.AddEndpointsApiExplorer();  // Enables API explorer for Swagger
 builder.Services.AddSwaggerGen();  // Enables OpenAPI (Swagger UI)
+//builder.Services.AddSingleton<ILogging, Logging>();  
 
 var app = builder.Build();
 
