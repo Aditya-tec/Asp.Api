@@ -1,9 +1,16 @@
 using Microsoft.OpenApi.Models;
 using Serilog;
+using Microsoft.EntityFrameworkCore;
+using MagicVilla_VillaApi.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
 //TO CREARE A LOG FILE....
 
